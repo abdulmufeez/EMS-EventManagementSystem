@@ -1,0 +1,32 @@
+﻿@model EMS_EventManagementSystem.Models.Placetype
+@{
+    ViewData["Title"] = "PlacetypeForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Create Place!</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-controller="PlaceType" asp-action="Save">
+            @Html.AntiForgeryToken();
+            @Html.HiddenFor(model => model.Id)
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <br />
+                <input asp-for="Name" class="form-control" />
+                <br />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Back to List</a>
+</div>
