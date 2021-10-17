@@ -14,5 +14,16 @@
 }
 else
 {
-
+<div class="row" style="margin:auto">
+    @foreach (var place in Model.Places)
+    {
+        <div class="card border-success mb-3" style="max-width: 20rem; margin:auto;">
+            <div class="card-header">@Model.Placetype.Name.ToString()</div>
+            <div class="card-body">
+                <h4 class="card-title">@place.Name</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+    }
+</div>
 }
