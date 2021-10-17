@@ -44,7 +44,7 @@
                 for (i = 0; i < data.length; i++) {
                     let newElem = document.createElement("a");
                     newElem.className = "dropdown-item";
-                    newElem.setAttribute("href", `/Index/${ data[i].id }`);
+                    newElem.setAttribute("href", `/Place/Index/${ data[i].id }`);
                     newElem.innerHTML = data[i].name;
                     placeDropdownMenu.appendChild(newElem);
                 }

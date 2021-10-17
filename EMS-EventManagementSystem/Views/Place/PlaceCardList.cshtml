@@ -1,0 +1,18 @@
+﻿@model EMS_EventManagementSystem.ViewModels.PlaceCardListViewModel
+@{
+    ViewData["Title"] = "PlaceCardList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>@Model.Placetype.Name.ToString()</h3>
+<hr />
+
+@if (!Model.Places.Any())
+{
+    <p class="text-lg-center">Sorry there is no place registered yet!</p>
+}
+else
+{
+
+}

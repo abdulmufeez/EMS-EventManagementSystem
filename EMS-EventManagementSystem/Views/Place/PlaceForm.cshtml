@@ -1,0 +1,74 @@
+﻿@model EMS_EventManagementSystem.ViewModels.PlaceFormViewModel
+
+@{
+    ViewData["Title"] = "PlacetypeForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Add your Place!</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Save" asp-controller="Place">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Place.Id)
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Place.Name" class="control-label"></label>
+                <br />
+                <input asp-for="Place.Name" class="form-control" />
+                <br />
+                <span asp-validation-for="Place.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.PlacetypeId" class="control-label"></label>
+                <br />
+                @Html.DropDownListFor(model => model.Place.PlacetypeId, new SelectList(Model.Placetype, "Id", "Name"), "Select Genre Type", new { @class = "form-control" })
+                <br />
+                <span asp-validation-for="Place.PlacetypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Area_Town.Name" class="control-label"></label>
+                <br />
+                <input asp-for="Place.Area_Town.Name" class="form-control" />
+                <br />
+                <span asp-validation-for="Place.Area_Town.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Area_Town.PostalCode" class="control-label"></label>
+                <br />
+                <input asp-for="Place.Area_Town.PostalCode" class="form-control" />
+                <br />
+                <span asp-validation-for="Place.Area_Town.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Area_Town.Street" class="control-label"></label>
+                <br />
+                <input asp-for="Place.Area_Town.Street" class="form-control" />
+                <br />
+                <span asp-validation-for="Place.Area_Town.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Area_Town.City.Name" class="control-label"></label>
+                <br />
+                <input asp-for="Place.Area_Town.City.Name" class="form-control" />
+                <br />
+                <span asp-validation-for="Place.Area_Town.City.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Area_Town.City.Country.Name" class="control-label"></label>
+                <br />
+                <input asp-for="Place.Area_Town.City.Country.Name" class="form-control" />
+                <br />
+                <span asp-validation-for="Place.Area_Town.City.Country.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Back to List</a>
+</div>

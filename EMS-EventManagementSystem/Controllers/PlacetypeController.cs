@@ -30,14 +30,14 @@ namespace EMS_EventManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Save(Placetype placeType)
         {
-            if (!ModelState.IsValid) { CreatePlacetype(); /*return View("PlaceTypeForm", new Placetype());*/ }
+            if (!ModelState.IsValid) { return View("PlaceTypeForm", new Placetype()); }
             else
             {
                 placeType.CreatedAt = DateTime.Now;
                 _context.Add(placeType);
-                await _context.SaveChangesAsync();
-
+                
             }
+            await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
     }
